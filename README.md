@@ -52,7 +52,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 # Run Project
 - npm run dev
 
-# create clerk login
+# create clerk login(Authentication)
 - npm install @clerk/nextjs
 
 # dark theme for clerk
