@@ -57,3 +57,15 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 # dark theme for clerk
 - npm install @clerk/theme
+
+# connect with POSTGRES DataBase with
+- POSTGRESSQL_DATABASE_URL
+
+# Background job handleing with inngest
+- npm i inngest
+- npx inngest-cli@latest dev
+## Click on local machine Link to see inngest dashboard locally
+Inngest Dev Server online at 0.0.0.0:8288, visible at the following URLs:
+
+         - http://127.0.0.1:8288 (http://localhost:8288)
+         - http://192.168.1.223:8288
