@@ -40,3 +40,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 # install - shadcn/ui
 - npx shadcn@latest init
+
+# create button and other component
+- npx shadcn@latest add button (it will create component folder under project then ui folder and button.jsx)
+- npx shadcn@latest add badge alert-dialog card dialog dropdown-menu input label progress radio-group select sonner tabs textarea
