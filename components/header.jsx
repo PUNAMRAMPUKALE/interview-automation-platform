@@ -17,8 +17,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
+import { userLogin } from "@/lib/userLogin";
 
-export default async function Header() {
+
+const Header=async()=> {
+  await userLogin()
   return (
     <header className="fixed top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
       <nav className="container mx-auto flex h-16 items-center justify-between px-4">
@@ -101,3 +104,5 @@ export default async function Header() {
     </header>
   );
 }
+
+export default Header;

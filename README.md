@@ -69,3 +69,12 @@ Inngest Dev Server online at 0.0.0.0:8288, visible at the following URLs:
 
          - http://127.0.0.1:8288 (http://localhost:8288)
          - http://192.168.1.223:8288
+
+## Install Prisma
+npm i -D prisma
+npx prisma init
+npx prisma generate
+
+
+## Define schema in schema.prisma and migrate this using
+npx prisma migrate dev --name create-models
