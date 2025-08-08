@@ -78,3 +78,5 @@ npx prisma generate
 
 ## Define schema in schema.prisma and migrate this using
 npx prisma migrate dev --name create-models
+
+# internal routes in (main) folder
