@@ -80,3 +80,11 @@ npx prisma generate
 npx prisma migrate dev --name create-models
 
 # internal routes in (main) folder
+
+# server api actions folder 
+
+# install resolver for react-hook and zod 
+
+npm i react-hook-form zod @hookform/resolvers
+
+# Make api call to acions-user.js(api)

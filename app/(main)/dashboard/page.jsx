@@ -1,6 +1,9 @@
 import React from 'react'
+import { getUserOnboardingStatus } from "@/actions/user";
 
-const IndustryInsightsPage = () => {
+const IndustryInsightsPage = async() => {
+
+  const { isOnboarded } = await getUserOnboardingStatus();
   return (
     <div>
       IndustryInsightsPage
@@ -8,4 +11,4 @@ const IndustryInsightsPage = () => {
   )
 }
 
-export default IndustryInsightsPage
+export default IndustryInsightsPage;
