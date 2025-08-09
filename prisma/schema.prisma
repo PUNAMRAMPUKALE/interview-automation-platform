@@ -11,7 +11,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("POSTGRESSQL_DATABASE_URL")
+  url      = env("DATABASE_URL")
 }
 model User {
   id            String    @id @default(uuid())
@@ -105,14 +105,14 @@ model IndustryInsight {
 }
 
 enum DemandLevel{
-HIGH 
-MEDIUM
-LOW
+High
+Medium
+Low
 }
 enum MarketOutlook{
-  POSITIVE 
-  NEUTRAL 
-  NEGATIVE
+  Positive
+  Neutral 
+  Negative
 }
 //(base) punam@MacBookAir my-app % npx prisma migrate dev --name create-models
 //create these tables into NEON database

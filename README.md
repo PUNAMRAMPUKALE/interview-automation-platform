@@ -59,7 +59,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - npm install @clerk/theme
 
 # connect with POSTGRES DataBase with
-- POSTGRESSQL_DATABASE_URL
+- DATABASE_URL
 
 # Background job handleing with inngest
 - npm i inngest
