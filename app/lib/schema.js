@@ -1,17 +1,12 @@
- import { z } from "zod";
+import { z } from "zod";
 
 export const onboardingSchema = z.object({
-  
-  
-    industry: z.string({
-  required_error: "Please select an industry",
+  industry: z.string({
+    required_error: "Please select an industry",
   }),
-  
-  
   subIndustry: z.string({
-required_error: "Please select a specialization",
+    required_error: "Please select a specialization",
   }),
-  
   bio: z.string().max(500).optional(),
   experience: z
     .string()
@@ -22,15 +17,15 @@ required_error: "Please select a specialization",
         .min(0, "Experience must be at least 0 years")
         .max(50, "Experience cannot exceed 50 years")
     ),
-  
-    skills: z.string().transform((val) =>
-    val ? val .split(",").map((skill) => skill.trim()).filter(Boolean)
-        : undefined
+  skills: z.string().transform((val) =>
+    val
+      ? val
+          .split(",")
+          .map((skill) => skill.trim())
+          .filter(Boolean)
+      : undefined
   ),
-
-
 });
-
 
 export const contactSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -61,6 +56,7 @@ export const entrySchema = z
     }
   );
 
+
 export const resumeSchema = z.object({
   contactInfo: contactSchema,
   summary: z.string().min(1, "Professional summary is required"),
@@ -69,10 +65,3 @@ export const resumeSchema = z.object({
   education: z.array(entrySchema),
   projects: z.array(entrySchema),
 });
-
-export const coverLetterSchema = z.object({
-  companyName: z.string().min(1, "Company name is required"),
-  jobTitle: z.string().min(1, "Job title is required"),
-  jobDescription: z.string().min(1, "Job description is required"),
-});
-
