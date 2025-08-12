@@ -1,9 +1,15 @@
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
+import { auth } from "@clerk/nextjs/server"; // ✅ server-safe
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Quiz from "../_components/quiz";
+import Quiz from "../_components/quiz"; // will be a Client Component
 
 export default function MockInterviewPage() {
+  auth().protect(); // gate on server (safe at build)
+
   return (
     <div className="container mx-auto space-y-4 py-6">
       <div className="flex flex-col space-y-2 mx-2">
