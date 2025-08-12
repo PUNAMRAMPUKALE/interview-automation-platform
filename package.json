@@ -28,7 +28,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
-    "html2pdf.js": "^0.10.3",
+    "html2pdf.js": "^0.9.3",
     "inngest": "^3.40.1",
     "lucide-react": "^0.537.0",
     "next": "15.4.6",
@@ -43,10 +43,13 @@
     "zod": "^4.0.16"
   },
   "devDependencies": {
+    "@csstools/postcss-oklab-function": "^4.0.10",
     "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.1.11",
     "eslint": "^9",
     "eslint-config-next": "15.4.6",
+    "postcss-lab-function": "^7.0.10",
+    "postcss-preset-env": "^10.2.4",
     "prisma": "^6.13.0",
     "tailwindcss": "^4",
     "tw-animate-css": "^1.3.6"
