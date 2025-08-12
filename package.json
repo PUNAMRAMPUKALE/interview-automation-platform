@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p $PORT",
     "lint": "next lint"
   },
   "dependencies": {
@@ -42,6 +42,9 @@
     "tailwind-merge": "^3.3.1",
     "zod": "^4.0.16"
   },
+  "engines": {
+  "node": "20.x"
+},
   "devDependencies": {
     "@csstools/postcss-oklab-function": "^4.0.10",
     "@eslint/eslintrc": "^3",
