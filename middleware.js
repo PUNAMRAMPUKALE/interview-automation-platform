@@ -2,42 +2,35 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
-const isProtectedRoute = createRouteMatcher([
+// Public (unprotected) routes only
+const isPublicRoute = createRouteMatcher([
   "/",
   "/sign-in(.*)",
   "/sign-up(.*)",
-  "/dashboard(.*)",
-  "/resume(.*)",
-  "/interview(.*)",
-  "/cover-letter(.*)",
-  "/onboarding(.*)",
 ]);
-export default clerkMiddleware((auth, req) => {
-  const { userId, redirectToSignIn } = auth();
 
-  // If the route is public:
+export default clerkMiddleware((auth, req) => {
+  const { userId } = auth();
+  const { pathname } = req.nextUrl;
+
+  // Public routes: let them through
   if (isPublicRoute(req)) {
-    // Already signed in? Keep them out of auth pages.
-    const p = req.nextUrl.pathname;
-    if (
-      userId &&
-      (p.startsWith("/sign-in") || p.startsWith("/sign-up"))
-    ) {
+    // If already signed-in, keep users out of auth pages
+    if (userId && (pathname.startsWith("/sign-in") || pathname.startsWith("/sign-up"))) {
       return NextResponse.redirect(new URL("/dashboard", req.url));
     }
-    return NextResponse.next();
+    return; // allow
   }
 
-  // Protected route: require auth
-  if (!userId) {
-    // Send user to sign-in and then back to where they were going
-    return redirectToSignIn({ returnBackUrl: req.url });
-  }
-
-  return NextResponse.next();
+  // Everything else requires auth
+  auth().protect();
 });
 
-// Don’t run middleware on Next internals or static assets
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
+  matcher: [
+    // Run on all app routes, skip static files and _next
+    "/((?!.+\\.[\\w]+$|_next).*)",
+    // Also run on API routes
+    "/(api|trpc)(.*)",
+  ],
 };
