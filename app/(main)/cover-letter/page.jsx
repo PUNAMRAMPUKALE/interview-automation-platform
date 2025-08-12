@@ -1,10 +1,24 @@
+// app/(main)/cover-letter/page.jsx
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
+import { auth } from "@clerk/nextjs/server";
 import { getCoverLetters } from "@/actions/cover-letter";
 import Link from "next/link";
 import { Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import CoverLetterList from "./_components/cover-letter-list";
+import dynamic from "next/dynamic";
+
+// Load client component only in the browser (avoids touching Clerk during build)
+const CoverLetterList = dynamic(
+  () => import("./_components/cover-letter-list"),
+  { ssr: false }
+);
 
 export default async function CoverLetterPage() {
+  // Protect on the server (safe at build-time)
+  auth().protect();
+
   const coverLetters = await getCoverLetters();
 
   return (
