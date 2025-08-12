@@ -1,9 +1,17 @@
+// app/(main)/interview/mock/page.jsx
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
+import { auth } from "@clerk/nextjs/server";
 import { getAssessments } from "@/actions/interview";
 import StatsCards from "./_components/stats-cards";
 import PerformanceChart from "./_components/performace-chart";
 import QuizList from "./_components/quiz-list";
 
 export default async function InterviewPrepPage() {
+  // Server-side auth gate (safe during build)
+  auth().protect();
+
   const assessments = await getAssessments();
 
   return (
