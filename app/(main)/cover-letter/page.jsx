@@ -8,10 +8,10 @@ import Link from "next/link";
 import { Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import CoverLetterList from "./_components/cover-letter-list"; // <-- normal import
+import { safeProtect } from "@/lib/authSafe.server";
 
 export default async function CoverLetterPage() {
-  auth().protect(); // safe on the server
-
+safeProtect();
   const coverLetters = await getCoverLetters();
 
   return (

@@ -9,9 +9,11 @@ import { getAssessments } from "@/actions/interview";
 import StatsCards from "./_components/stats-cards";
 import PerformanceChart from "./_components/performace-chart";
 import QuizList from "./_components/quiz-list";
+import { safeProtect } from "@/lib/authSafe.server";
+
 
 export default async function InterviewPrepPage() {
-  auth().protect();          // ✅ safe at build time
+  safeProtect();
   const assessments = await getAssessments();
 
   return (

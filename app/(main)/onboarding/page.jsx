@@ -6,9 +6,11 @@ import OnboardingForm from "./_components/onboarding-form";
 import { industries } from "@/data/industries";
 import { getUserOnboardingStatus, updateUser } from "@/actions/user";
 import { redirect } from "next/navigation";
+import { safeProtect } from "@/lib/authSafe.server";
+
 
 export default async function OnboardingPage() {
-  auth().protect(); // safe at build/runtime
+ safeProtect();
 
   const { isOnboarded } = await getUserOnboardingStatus();
   if (isOnboarded) {
