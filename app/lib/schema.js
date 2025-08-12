@@ -62,11 +62,14 @@ export const entrySchema = z
   );
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export const coverLetterSchema = z.object({
   companyName: z.string().min(1, "Company name is required"),
   jobTitle: z.string().min(1, "Job title is required"),
   jobDescription: z.string().min(1, "Job description is required"),
 });
+=======
+>>>>>>> parent of b7578a1 (production-fix)
 
 =======
 >>>>>>> parent of bf72582 (Resume-builder-completed)
