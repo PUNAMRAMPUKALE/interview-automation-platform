@@ -1,6 +1,3 @@
-// app/(main)/interview/mock/_components/quiz-list.jsx
-"use client";
-
 import { Brain, Target, Trophy } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 

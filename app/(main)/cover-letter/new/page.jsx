@@ -2,8 +2,6 @@ import { Button } from "@/components/ui/button";
 import CoverLetterGenerator from "../_components/cover-letter-generator";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
-// app/(main)/cover-letter/new/page.tsx
-export const dynamic = "force-dynamic"; // or: export const revalidate = 0;
 
 
 

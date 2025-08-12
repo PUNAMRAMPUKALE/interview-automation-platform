@@ -128,4 +128,3 @@ Output: Return only the completed cover letter in Markdown format, without any a
     throw new Error("Failed to generate cover letter");
   }
 }
-

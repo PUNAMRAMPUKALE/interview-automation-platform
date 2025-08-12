@@ -1,7 +1,7 @@
 import { SignUp } from "@clerk/nextjs";
 
 const Page = () =>{
-    return <SignUp forceRedirectUrl="/dashboard"/>
+    return <SignUp/>
 }
 
 export default Page;

@@ -1,24 +1,28 @@
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Quiz from "../_components/quiz";
 
-import { auth } from "@clerk/nextjs/server";     // ✅server-safe
-import OnboardingForm from "../../onboarding/_components/onboarding-form";
-import { industries } from "@/data/industries";
-import { getUserOnboardingStatus } from "@/actions/user";
-import { redirect } from "next/navigation";
-import { safeProtect } from "@/lib/authSafe.server";
-
-export default async function OnboardingPage() {
- safeProtect();
-
-  const { isOnboarded } = await getUserOnboardingStatus();
-  if (isOnboarded) {
-    redirect("/dashboard");
-  }
-
+export default function MockInterviewPage() {
   return (
-    <main>
-      <OnboardingForm industries={industries} />
-    </main>
+    <div className="container mx-auto space-y-4 py-6">
+      <div className="flex flex-col space-y-2 mx-2">
+        <Link href="/interview">
+          <Button variant="link" className="gap-2 pl-0">
+            <ArrowLeft className="h-4 w-4" />
+            Back to Interview Preparation
+          </Button>
+        </Link>
+
+        <div>
+          <h1 className="text-6xl font-bold gradient-title">Mock Interview</h1>
+          <p className="text-muted-foreground">
+            Test your knowledge with industry-specific questions
+          </p>
+        </div>
+      </div>
+
+      <Quiz />
+    </div>
   );
 }

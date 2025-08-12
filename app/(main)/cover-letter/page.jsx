@@ -1,17 +1,10 @@
-// app/(main)/cover-letter/page.jsx
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
-
-import { auth } from "@clerk/nextjs/server";
 import { getCoverLetters } from "@/actions/cover-letter";
 import Link from "next/link";
 import { Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import CoverLetterList from "./_components/cover-letter-list"; // <-- normal import
-import { safeProtect } from "@/lib/authSafe.server";
+import CoverLetterList from "./_components/cover-letter-list";
 
 export default async function CoverLetterPage() {
-safeProtect();
   const coverLetters = await getCoverLetters();
 
   return (
