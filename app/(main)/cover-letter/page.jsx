@@ -7,17 +7,10 @@ import { getCoverLetters } from "@/actions/cover-letter";
 import Link from "next/link";
 import { Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import dynamic from "next/dynamic";
-
-// Load client component only in the browser (avoids touching Clerk during build)
-const CoverLetterList = dynamic(
-  () => import("./_components/cover-letter-list"),
-  { ssr: false }
-);
+import CoverLetterList from "./_components/cover-letter-list"; // <-- normal import
 
 export default async function CoverLetterPage() {
-  // Protect on the server (safe at build-time)
-  auth().protect();
+  auth().protect(); // safe on the server
 
   const coverLetters = await getCoverLetters();
 
