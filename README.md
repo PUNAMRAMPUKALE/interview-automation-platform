@@ -58,7 +58,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 # dark theme for clerk
 - npm install @clerk/theme
 
-# connect with POSTGRES DataBase with
+
+
+# create public API
+- inngest API
+# connect with POSTGRES DataBase with inngest
 - DATABASE_URL
 
 # Background job handleing with inngest

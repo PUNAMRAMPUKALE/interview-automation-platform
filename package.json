@@ -45,8 +45,8 @@
     "zod": "^4.0.16"
   },
   "engines": {
-  "node": "20.x"
-},
+    "node": "20.x"
+  },
   "devDependencies": {
     "@csstools/postcss-oklab-function": "^4.0.10",
     "@eslint/eslintrc": "^3",
