@@ -7,6 +7,9 @@ import { dark } from "@clerk/themes";
 
 const inter = Inter({ subsets: ["latin"] });
 const clerkPk = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
+if (process.env.VERCEL) {
+  console.log("Has Clerk PK?", Boolean(process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY));
+}
 
 export const metadata = {
   title: "Interview Automation App",
